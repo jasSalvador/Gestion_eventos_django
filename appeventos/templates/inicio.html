@@ -1,0 +1,34 @@
+<!--hereda del archivo base.html-->
+{% extends 'base.html' %} 
+{% load static %}
+
+<!-- titulo: inicio -->
+{% block title %}Inicio - Eventos{% endblock %}
+
+<!-- {% block body_class %}app-fondo{% endblock %} -->
+
+{% block content %}
+<div class="row container text-center py-5 mx-auto">
+    <h1 class="mt-5">Bienvenid@, {{user.username}}!</h1>
+    <h4 class="mb-5 mt-3">Aquí puedes ver todos los eventos en los que te has inscrito 📆</h4>
+
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
+{% for evento in eventos %}
+    <div class="card col-md-4 mb-5 bg-light my-5 mx-2">
+        <div class="card-body">
+            <h5>{{ evento.nombre }} 📌</h5>
+            <h5>{{ evento.fecha }}</h5>
+            <h5>{{ evento.ubicacion }}</h5>
+        </div>
+    </div>
+{% empty %}
+    <p class="fs-4">Aún no estás inscrit@ en ningún evento 😕</p>
+{% endfor %}
+</div>
+{% endblock %}

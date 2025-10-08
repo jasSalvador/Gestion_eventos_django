@@ -1,0 +1,40 @@
+<!--hereda del archivo base.html-->
+{% extends 'base.html' %} 
+{% load static %}
+
+<!-- titulo: inicio -->
+{% block title %}Tus eventos{% endblock %}
+
+<!-- {% block body_class %}app-fondo{% endblock %} -->
+
+{% block content %}
+<div class="row container text-center pt-5 pb-3 mx-auto">
+    <h1 class="mt-5">Eventos disponibles</h1>
+</div>
+
+<!--lista eventos disponibles -->
+<div class="container px-3">
+    <h3 class="py-5">Inscribete en tu evento favorito! 📌</h3>
+    <div class="row">
+        {% for evento in eventos %}
+        <div class="col-md-4 mb-5">
+            <div class="card">
+                <div class="card-body d-flex justify-content-md-center justify-content-start mx-md-auto me-auto">
+                    <div class="text-start px-2">
+                        <h5 class="card-title">{{ evento.nombre }}</h5>
+                        <p class="card-text">{{ evento.fecha }}</p>
+                        <p class="card-text">{{ evento.ubicacion }}</p>
+                        <form method="POST" action="{% url 'inscribirse' evento.id %}">
+                            {% csrf_token %}
+                            <button class="submit btn btn-success">Inscribirse</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="fs-4">No hay eventos disponibles.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

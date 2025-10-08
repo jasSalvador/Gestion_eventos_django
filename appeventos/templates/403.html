@@ -1,0 +1,14 @@
+<!--hereda del archivo base.html-->
+{% extends 'base.html' %} 
+{% load static %}
+
+<!-- titulo: inicio -->
+{% block title %}Error - 403{% endblock %}
+
+{% block content %}
+<div class="container text-center py-5 mx-auto">
+    <h1 class="display-4 text-danger mt-5">Acceso denegado 🚫</h1>
+    <p class="lead fs-4">No tienes permiso para ver esta página 😣</p>
+    <a href="{% url 'inicio' %}" class="btn btn-primary my-5">Volver a inicio</a>
+</div>
+{% endblock %}
