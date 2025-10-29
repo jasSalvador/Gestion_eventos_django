@@ -22,6 +22,12 @@ Los usuarios se crearon desde el panel de administración y se utilizaron vistas
 
 Los permisos se asignan usando `auth_permission` de Django y se gestionan desde el panel de administración.
 
+## Usuarios creados 👤
+
+- *Administradores*: catalina y renata
+- *Organizadores*: roberto y victor
+- *Asistentes*: gustavo y maria
+- **Contraseña de usuarios**: gestion@eventos123
 
 ## Autenticación y autorización 🔐
 
